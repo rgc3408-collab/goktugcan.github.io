@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -5,12 +6,19 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Göktuğ | Yazılım Mühendisliği</title>
+    <meta name="description"
+          content="Göktuğ - Yazılım Mühendisliği öğrencisi ve web geliştirme portföyü.">
+
+    <title>Göktuğ | Software Engineering</title>
+
 
     <style>
+
+        /* =========================
+           TEMEL AYARLAR
+        ========================= */
 
         * {
             margin: 0;
@@ -23,42 +31,66 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #080c0a;
-            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #070b09;
+            color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
 
+            background: rgba(7, 11, 9, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #19251e;
+
+            padding: 18px 5%;
+        }
+
+        .nav-container {
+            max-width: 1120px;
+            margin: auto;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-
-            padding: 20px 8%;
-
-            background: rgba(8, 12, 10, 0.95);
-            border-bottom: 1px solid #1b2921;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .logo {
             color: #39ff88;
-            font-size: 23px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         nav ul {
             display: flex;
-            gap: 28px;
+            align-items: center;
+            gap: 25px;
             list-style: none;
         }
 
         nav a {
-            color: #ddd;
-            text-decoration: none;
+            color: #cbd3ce;
             font-size: 14px;
             transition: 0.3s;
         }
@@ -67,57 +99,48 @@
             color: #39ff88;
         }
 
+
+        /* =========================
+           HERO
+        ========================= */
+
         .hero {
-            min-height: 90vh;
+            min-height: calc(100vh - 70px);
 
             display: flex;
-            justify-content: center;
             align-items: center;
 
-            text-align: center;
-
-            padding: 80px 20px;
+            padding: 80px 0;
 
             background:
                 radial-gradient(
-                    circle at center,
-                    #123b24,
-                    #080c0a 60%
-                );
+                    circle at 50% 40%,
+                    rgba(57, 255, 136, 0.14),
+                    transparent 35%
+                ),
+                #070b09;
         }
 
-        .hero-content {
-            max-width: 850px;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 60px;
         }
 
-        .profile-photo {
-            width: 170px;
-            height: 170px;
-
-            margin: 0 auto 30px;
-
-            border-radius: 50%;
-
-            overflow: hidden;
-
-            border: 2px solid #39ff88;
-
-            box-shadow:
-                0 0 40px rgba(57, 255, 136, 0.15);
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: contain;
-
-            display: block;
+        .hero-small {
+            color: #39ff88;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 90px);
-            line-height: 1.05;
+            font-size: clamp(50px, 8vw, 88px);
+            line-height: 0.98;
+            letter-spacing: -3px;
             margin-bottom: 25px;
         }
 
@@ -125,327 +148,491 @@
             color: #39ff88;
         }
 
-        .hero p {
+        .hero-description {
             max-width: 650px;
-            margin: auto;
-
-            color: #9ca9a1;
-            font-size: 20px;
+            color: #9ba69f;
+            font-size: 19px;
+            margin-bottom: 32px;
         }
 
-        .buttons {
-            margin-top: 35px;
-
+        .hero-buttons {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 13px 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 22px;
 
             border-radius: 8px;
 
-            text-decoration: none;
             font-weight: bold;
 
             transition: 0.3s;
         }
 
-        .primary {
+        .btn-primary {
             background: #39ff88;
-            color: #07100a;
+            color: #061009;
         }
 
-        .primary:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
-
-            box-shadow:
-                0 10px 30px
-                rgba(57, 255, 136, 0.25);
+            box-shadow: 0 12px 30px rgba(57, 255, 136, 0.2);
         }
 
-        .secondary {
+        .btn-outline {
             border: 1px solid #39ff88;
             color: #39ff88;
         }
 
-        .secondary:hover {
+        .btn-outline:hover {
             background: #39ff88;
-            color: #07100a;
+            color: #061009;
         }
+
+
+        /* =========================
+           HERO CARD
+        ========================= */
+
+        .profile-card {
+            position: relative;
+
+            min-height: 360px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #0d130f;
+
+            border: 1px solid #203027;
+            border-radius: 24px;
+
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background: rgba(57, 255, 136, 0.12);
+
+            filter: blur(40px);
+        }
+
+        .profile-symbol {
+            position: relative;
+
+            width: 150px;
+            height: 150px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #39ff88;
+            border-radius: 50%;
+
+            color: #39ff88;
+
+            font-size: 48px;
+            font-weight: 800;
+
+            box-shadow:
+                0 0 45px rgba(57, 255, 136, 0.12);
+        }
+
+        .profile-label {
+            position: absolute;
+            bottom: 25px;
+
+            color: #849088;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
-            padding: 100px 8%;
+            padding: 110px 0;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .title {
+        .section-heading {
             text-align: center;
             margin-bottom: 60px;
         }
 
-        .title h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        .section-heading span {
+            color: #39ff88;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .title p {
-            color: #7f8c84;
+        .section-heading h2 {
+            font-size: 42px;
+            margin: 8px 0 12px;
         }
 
-        .about {
+        .section-heading p {
+            color: #7f8b84;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            gap: 60px;
-            align-items: center;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
         }
 
-        .about-text p {
-            color: #a8b3ac;
+        .about-box {
+            background: #0d130f;
+            border: 1px solid #1d2a22;
+            border-radius: 18px;
+            padding: 35px;
+        }
+
+        .about-box p {
+            color: #a4afa8;
             margin-bottom: 18px;
         }
 
-        .about-card {
-            padding: 35px;
-
-            background: #101612;
-
-            border: 1px solid #1d2922;
-
-            border-radius: 16px;
+        .about-side {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .about-card h3 {
-            color: #39ff88;
-            margin-bottom: 15px;
-        }
-
-        .about-card p {
-            color: #a8b3ac;
-        }
-
-        .skills {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .skill {
-            background: #101612;
-
-            border: 1px solid #1d2922;
-
-            padding: 30px;
-
+        .info-card {
+            background: #0d130f;
+            border: 1px solid #1d2a22;
             border-radius: 15px;
+            padding: 24px;
+        }
 
+        .info-card span {
+            color: #39ff88;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .info-card h3 {
+            margin-top: 5px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            color: #7f8b84;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #0d130f;
+            border: 1px solid #1d2a22;
+            border-radius: 16px;
+            padding: 28px;
             transition: 0.3s;
         }
 
-        .skill:hover {
-            transform: translateY(-8px);
+        .skill-card:hover {
+            transform: translateY(-6px);
             border-color: #39ff88;
         }
 
-        .skill h3 {
-            color: #39ff88;
-            margin-bottom: 10px;
-        }
+        .skill-icon {
+            width: 45px;
+            height: 45px;
 
-        .skill p {
-            color: #859189;
-        }
-
-        .progress {
-            height: 7px;
-
-            background: #202a24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             border-radius: 10px;
+
+            background: rgba(57, 255, 136, 0.1);
+            color: #39ff88;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #7f8b84;
+            font-size: 14px;
+        }
+
+        .skill-status {
+            display: inline-block;
 
             margin-top: 20px;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            border: 1px solid #284033;
+
+            color: #39ff88;
+
+            font-size: 12px;
         }
 
-        .bar {
-            height: 100%;
 
-            background: #39ff88;
+        /* =========================
+           PROJECTS
+        ========================= */
 
-            border-radius: 10px;
-        }
-
-        .html {
-            width: 85%;
-        }
-
-        .css {
-            width: 70%;
-        }
-
-        .javascript {
-            width: 35%;
-        }
-
-        .projects {
+        .projects-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .project {
-            padding: 30px;
+        .project-card {
+            display: flex;
+            flex-direction: column;
 
-            background: #101612;
+            min-height: 280px;
 
-            border: 1px solid #1d2922;
+            background: #0d130f;
+            border: 1px solid #1d2a22;
 
-            border-radius: 15px;
+            border-radius: 16px;
+
+            padding: 28px;
 
             transition: 0.3s;
         }
 
-        .project:hover {
-            transform: translateY(-8px);
+        .project-card:hover {
+            transform: translateY(-6px);
             border-color: #39ff88;
         }
 
         .project-number {
             color: #39ff88;
-
+            font-size: 13px;
             font-weight: bold;
+        }
 
+        .project-card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .project-card p {
+            color: #818d86;
             font-size: 14px;
         }
 
-        .project h3 {
-            margin: 15px 0;
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+
+            margin-top: 20px;
         }
 
-        .project p {
-            color: #87938b;
+        .project-tags span {
+            padding: 5px 9px;
 
-            margin-bottom: 20px;
+            border-radius: 5px;
+
+            background: #151e18;
+
+            color: #9aa59e;
+
+            font-size: 11px;
         }
 
         .project-link {
-            display: inline-block;
-
-            padding: 10px 16px;
-
-            border: 1px solid #39ff88;
-
-            border-radius: 8px;
+            margin-top: auto;
+            padding-top: 25px;
 
             color: #39ff88;
-
-            text-decoration: none;
-
             font-size: 14px;
-
-            transition: 0.3s;
+            font-weight: bold;
         }
 
-        .project-link:hover {
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .education-card {
+            position: relative;
+
+            padding: 30px 30px 30px 35px;
+
+            background: #0d130f;
+
+            border: 1px solid #1d2a22;
+
+            border-radius: 16px;
+        }
+
+        .education-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 25px;
+            bottom: 25px;
+
+            width: 3px;
+
             background: #39ff88;
-            color: #07100a;
+
+            border-radius: 5px;
         }
+
+        .education-date {
+            color: #39ff88;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .education-card h3 {
+            margin: 7px 0;
+        }
+
+        .education-card p {
+            color: #818d86;
+        }
+
+
+        /* =========================
+           GOALS
+        ========================= */
 
         .goals {
-            max-width: 750px;
+            max-width: 800px;
             margin: auto;
+
+            display: grid;
+            gap: 12px;
         }
 
         .goal {
             display: flex;
             align-items: center;
+            gap: 18px;
 
-            gap: 20px;
+            padding: 20px 24px;
 
-            padding: 22px;
-
-            background: #101612;
-
-            border: 1px solid #1d2922;
+            background: #0d130f;
+            border: 1px solid #1d2a22;
 
             border-radius: 12px;
-
-            margin-bottom: 15px;
         }
 
         .goal-number {
+            min-width: 35px;
+
             color: #39ff88;
 
-            font-size: 23px;
             font-weight: bold;
         }
 
         .goal p {
-            color: #a8b3ac;
+            color: #a4afa8;
         }
 
+
+        /* =========================
+           SOCIAL
+        ========================= */
+
         .social {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+
             margin-top: 35px;
         }
 
         .social a {
-            display: inline-block;
+            padding: 11px 20px;
 
-            margin: 5px;
-
-            padding: 10px 20px;
-
-            border: 1px solid #1d2922;
-
+            border: 1px solid #1d2a22;
             border-radius: 8px;
 
             color: #39ff88;
-
-            text-decoration: none;
 
             transition: 0.3s;
         }
 
         .social a:hover {
             background: #39ff88;
-            color: #07100a;
+            color: #061009;
         }
 
-        .contact {
-            max-width: 650px;
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-wrapper {
+            max-width: 700px;
             margin: auto;
         }
 
         form {
             display: flex;
             flex-direction: column;
-
-            gap: 15px;
+            gap: 14px;
         }
 
         input,
         textarea {
             width: 100%;
 
-            padding: 15px;
+            padding: 15px 16px;
 
-            background: #101612;
+            background: #0d130f;
 
-            border: 1px solid #1d2922;
+            border: 1px solid #1d2a22;
 
             border-radius: 8px;
 
@@ -461,73 +648,138 @@
         }
 
         textarea {
-            height: 150px;
+            min-height: 150px;
             resize: vertical;
         }
 
         form button {
             padding: 14px;
 
-            background: #39ff88;
-
-            color: #07100a;
-
             border: none;
-
             border-radius: 8px;
+
+            background: #39ff88;
+            color: #061009;
 
             font-weight: bold;
 
             cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            transform: translateY(-2px);
         }
 
         #formMesaj {
             text-align: center;
             color: #39ff88;
+            min-height: 24px;
         }
 
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            padding: 30px;
+            padding: 30px 0;
+
+            border-top: 1px solid #1b2921;
 
             text-align: center;
 
-            color: #69756e;
+            color: #68746d;
 
-            border-top: 1px solid #1d2922;
+            font-size: 13px;
         }
 
-        @media (max-width: 800px) {
+
+        /* =========================
+           MOBİL
+        ========================= */
+
+        @media (max-width: 850px) {
 
             nav {
+                padding: 15px 5%;
+            }
+
+            .nav-container {
                 flex-direction: column;
-                gap: 15px;
             }
 
             nav ul {
-                gap: 15px;
+                justify-content: center;
                 flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
                 justify-content: center;
             }
 
-            .about {
+            .profile-card {
+                min-height: 280px;
+            }
+
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
-            .skills,
-            .projects {
+            .skills-grid,
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
             section {
-                padding: 70px 6%;
+                padding: 80px 0;
             }
 
-            .hero h1 {
-                font-size: 50px;
+            .section-heading h2 {
+                font-size: 34px;
             }
 
         }
+.profile-photo {
+    position: relative;
 
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 2px solid #39ff88;
+
+    box-shadow:
+        0 0 45px rgba(57, 255, 136, 0.15);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
     </style>
 
 </head>
@@ -536,90 +788,120 @@
 <body>
 
 
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
     <nav>
 
-        <div class="logo">
-            GÖKTUĞ.
+        <div class="nav-container">
+
+            <a href="#anasayfa" class="logo">
+                GÖKTUĞ.
+            </a>
+
+            <ul>
+
+                <li>
+                    <a href="#hakkimda">
+                        Hakkımda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#yetenekler">
+                        Yetenekler
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projeler">
+                        Projeler
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#egitim">
+                        Eğitim
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#iletisim">
+                        İletişim
+                    </a>
+                </li>
+
+            </ul>
+
         </div>
-
-        <ul>
-
-            <li>
-                <a href="#anasayfa">Ana Sayfa</a>
-            </li>
-
-            <li>
-                <a href="#hakkimda">Hakkımda</a>
-            </li>
-
-            <li>
-                <a href="#yetenekler">Yetenekler</a>
-            </li>
-
-            <li>
-                <a href="#projeler">Projeler</a>
-            </li>
-
-            <li>
-                <a href="#hedefler">Hedefler</a>
-            </li>
-
-            <li>
-                <a href="#iletisim">İletişim</a>
-            </li>
-
-        </ul>
 
     </nav>
 
 
-    <section class="hero"
-             id="anasayfa">
+    <!-- =========================
+         HERO
+    ========================= -->
 
-        <div class="hero-content">
+    <section class="hero" id="anasayfa">
 
+        <div class="container">
 
-            <div class="profile-photo">
-
-                <img src="c:\Users\rgc34\Downloads\rgc.jpg"
-                     alt="Göktuğ Can">
-
-            </div>
+            <div class="hero-grid">
 
 
-            <h1>
+                <div>
 
-                Merhaba, ben
-                <span>Göktuğ.</span>
+                    <div class="hero-small">
+                        Software Engineering Student
+                    </div>
 
-            </h1>
+                    <h1>
+                        Merhaba,<br>
+                        ben <span>Göktuğ.</span>
+                    </h1>
 
-
-            <p>
-
-                Yazılım Mühendisliği öğrencisiyim.
-                Web teknolojileriyle projeler geliştiriyor
-                ve yazılım alanında kendimi sürekli geliştiriyorum.
-
-            </p>
-
-
-            <div class="buttons">
-
-                <a href="#projeler"
-                   class="btn primary">
-
-                    Projelerimi Gör
-
-                </a>
+                    <p class="hero-description">
+                        Yazılım Mühendisliği öğrencisiyim.
+                        Web teknolojileriyle projeler geliştiriyor,
+                        yeni teknolojiler öğreniyor ve kendimi
+                        sürekli geliştiriyorum.
+                    </p>
 
 
-                <a href="#iletisim"
-                   class="btn secondary">
+                    <div class="hero-buttons">
 
-                    İletişime Geç
+                        <a href="#projeler"
+                           class="btn btn-primary">
 
-                </a>
+                            Projelerimi Gör
+
+                        </a>
+
+                        <a href="#iletisim"
+                           class="btn btn-outline">
+
+                            İletişime Geç
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-card">
+
+                    <div class="profile-photo">
+    <img src="c:\Users\rgc34\Downloads\rgc.jpg" alt="Göktuğ Can">
+</div>
+
+<div class="profile-label">
+    Göktuğ Can
+</div>
+
+                </div>
+
 
             </div>
 
@@ -628,24 +910,31 @@
     </section>
 
 
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
     <section id="hakkimda">
 
         <div class="container">
 
-            <div class="title">
+            <div class="section-heading">
 
-                <h2>Hakkımda</h2>
+                <span>01 / HAKKIMDA</span>
+
+                <h2>Kimim?</h2>
 
                 <p>
-                    Kısaca ben ve yazılım yolculuğum.
+                    Yazılım yolculuğumdan kısa bir kesit.
                 </p>
 
             </div>
 
 
-            <div class="about">
+            <div class="about-grid">
 
-                <div class="about-text">
+
+                <div class="about-box">
 
                     <p>
                         Merhaba, ben Göktuğ.
@@ -654,36 +943,66 @@
                         kendimi geliştiriyorum.
                     </p>
 
-
                     <p>
-                        Web geliştirme öğrenerek başladığım
-                        bu yolculukta HTML, CSS ve JavaScript
-                        üzerinde çalışıyor ve öğrendiklerimi
+                        Web geliştirme ile başladığım bu
+                        yolculukta HTML, CSS ve JavaScript
+                        öğreniyor, öğrendiğim bilgileri
                         gerçek projelere dönüştürüyorum.
                     </p>
 
-
                     <p>
-                        Uzun vadeli hedefim modern yazılım
-                        teknolojileri kullanarak profesyonel
-                        ve kullanışlı projeler geliştirmek.
+                        Amacım sadece kod yazmayı öğrenmek
+                        değil; insanların gerçekten
+                        kullanabileceği projeler geliştirmek
+                        ve zamanla profesyonel bir yazılım
+                        geliştirici olmak.
                     </p>
 
                 </div>
 
 
-                <div class="about-card">
+                <div class="about-side">
 
-                    <h3>
-                        Şu An Ne Yapıyorum?
-                    </h3>
+                    <div class="info-card">
 
-                    <p>
-                        Yazılım mühendisliği eğitimime
-                        hazırlanıyor, web geliştirme
-                        öğreniyor ve kendi projelerimi
-                        geliştiriyorum.
-                    </p>
+                        <span>ODAK NOKTAM</span>
+
+                        <h3>Web Development</h3>
+
+                        <p>
+                            Modern web teknolojileri
+                            ve kullanıcı deneyimi.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>ŞU AN</span>
+
+                        <h3>Öğreniyorum & Üretiyorum</h3>
+
+                        <p>
+                            Yeni teknolojiler öğreniyor
+                            ve kendi projelerimi geliştiriyorum.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>UZUN VADELİ HEDEF</span>
+
+                        <h3>Profesyonel Yazılım Geliştirici</h3>
+
+                        <p>
+                            Gerçek problemlere çözüm
+                            üreten projeler geliştirmek.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -693,7 +1012,8 @@
             <div class="social">
 
                 <a href="https://github.com/rgc3408-collab"
-                   target="_blank">
+                   target="_blank"
+                   rel="noopener noreferrer">
 
                     GitHub
 
@@ -701,7 +1021,8 @@
 
 
                 <a href="https://www.linkedin.com/in/rasim-g%C3%B6ktu%C4%9F-c-948214389/"
-                   target="_blank">
+                   target="_blank"
+                   rel="noopener noreferrer">
 
                     LinkedIn
 
@@ -714,74 +1035,89 @@
     </section>
 
 
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
     <section id="yetenekler">
 
         <div class="container">
 
-            <div class="title">
+            <div class="section-heading">
 
-                <h2>Yetenekler</h2>
+                <span>02 / YETENEKLER</span>
+
+                <h2>Teknolojiler</h2>
 
                 <p>
-                    Üzerinde çalıştığım teknolojiler.
+                    Şu anda üzerinde çalıştığım teknolojiler.
                 </p>
 
             </div>
 
 
-            <div class="skills">
+            <div class="skills-grid">
 
 
-                <div class="skill">
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        HTML
+                    </div>
 
                     <h3>HTML</h3>
 
                     <p>
-                        Web sayfalarının temel yapısını
-                        oluşturmayı öğreniyorum.
+                        Web sayfalarının yapısını,
+                        semantik HTML kullanımını
+                        ve temel web standartlarını öğreniyorum.
                     </p>
 
-                    <div class="progress">
-
-                        <div class="bar html"></div>
-
-                    </div>
+                    <span class="skill-status">
+                        Aktif Öğreniyorum
+                    </span>
 
                 </div>
 
 
-                <div class="skill">
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        CSS
+                    </div>
 
                     <h3>CSS</h3>
 
                     <p>
-                        Modern ve responsive web
-                        tasarımları geliştiriyorum.
+                        Responsive tasarım, düzen,
+                        renkler, animasyonlar ve
+                        modern kullanıcı arayüzleri üzerinde çalışıyorum.
                     </p>
 
-                    <div class="progress">
-
-                        <div class="bar css"></div>
-
-                    </div>
+                    <span class="skill-status">
+                        Geliştiriyorum
+                    </span>
 
                 </div>
 
 
-                <div class="skill">
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        JS
+                    </div>
 
                     <h3>JavaScript</h3>
 
                     <p>
-                        Web sitelerine etkileşim ve
-                        dinamik özellikler eklemeyi öğreniyorum.
+                        Web sitelerine etkileşim
+                        kazandırmayı ve JavaScript
+                        programlama mantığını öğreniyorum.
                     </p>
 
-                    <div class="progress">
-
-                        <div class="bar javascript"></div>
-
-                    </div>
+                    <span class="skill-status">
+                        Öğreniyorum
+                    </span>
 
                 </div>
 
@@ -793,13 +1129,19 @@
     </section>
 
 
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
     <section id="projeler">
 
         <div class="container">
 
-            <div class="title">
+            <div class="section-heading">
 
-                <h2>Projeler</h2>
+                <span>03 / PROJELER</span>
+
+                <h2>Çalışmalarım</h2>
 
                 <p>
                     Geliştirdiğim ve geliştireceğim projeler.
@@ -808,39 +1150,47 @@
             </div>
 
 
-            <div class="projects">
+            <div class="projects-grid">
 
 
-                <div class="project">
+                <div class="project-card">
 
                     <div class="project-number">
-                        01
+                        PROJECT 01
                     </div>
 
                     <h3>
-                        Kişisel Web Sitesi
+                        Kişisel Portföy
                     </h3>
 
                     <p>
                         HTML ve CSS kullanarak
-                        geliştirdiğim kişisel
-                        portföy sitesi.
+                        oluşturduğum kişisel portföy
+                        web sitesi.
                     </p>
+
+                    <div class="project-tags">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Responsive</span>
+
+                    </div>
 
                     <a href="#anasayfa"
                        class="project-link">
 
-                        Siteyi Gör →
-
+                        Şu an bu site →
+                        
                     </a>
 
                 </div>
 
 
-                <div class="project">
+                <div class="project-card">
 
                     <div class="project-number">
-                        02
+                        PROJECT 02
                     </div>
 
                     <h3>
@@ -848,25 +1198,30 @@
                     </h3>
 
                     <p>
-                        JavaScript kullanarak
-                        geliştirdiğim mini hesap
-                        makinesi uygulaması.
+                        JavaScript programlama mantığını
+                        öğrenmek için geliştirdiğim
+                        mini uygulama.
                     </p>
 
-                    <a href="hesap-makinesi.html"
-                       class="project-link">
+                    <div class="project-tags">
 
-                        Projeyi Gör →
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
 
-                    </a>
+                    </div>
+
+                    <span class="project-link">
+                        Geliştiriliyor →
+                    </span>
 
                 </div>
 
 
-                <div class="project">
+                <div class="project-card">
 
                     <div class="project-number">
-                        03
+                        PROJECT 03
                     </div>
 
                     <h3>
@@ -874,10 +1229,20 @@
                     </h3>
 
                     <p>
-                        Öğrenme sürecimde
-                        geliştireceğim yeni
-                        projem burada yer alacak.
+                        Öğrendiğim yeni teknolojileri
+                        kullanarak geliştireceğim
+                        gerçek bir web projesi.
                     </p>
+
+                    <div class="project-tags">
+
+                        <span>Yakında</span>
+
+                    </div>
+
+                    <span class="project-link">
+                        Yakında →
+                    </span>
 
                 </div>
 
@@ -889,16 +1254,71 @@
     </section>
 
 
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section id="egitim">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>04 / EĞİTİM</span>
+
+                <h2>Eğitim</h2>
+
+                <p>
+                    Akademik yolculuğum.
+                </p>
+
+            </div>
+
+
+            <div class="education">
+
+                <div class="education-card">
+
+                    <div class="education-date">
+                        2026 — DEVAM EDİYOR
+                    </div>
+
+                    <h3>
+                        Yazılım Mühendisliği
+                    </h3>
+
+                    <p>
+                        Üniversite eğitimim kapsamında
+                        yazılım geliştirme, programlama
+                        ve bilgisayar bilimleri alanlarında
+                        kendimi geliştiriyorum.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GOALS
+    ========================= -->
+
     <section id="hedefler">
 
         <div class="container">
 
-            <div class="title">
+            <div class="section-heading">
 
-                <h2>Hedeflerim</h2>
+                <span>05 / HEDEFLER</span>
+
+                <h2>Nereye Gidiyorum?</h2>
 
                 <p>
-                    Yazılım yolculuğumda ilerlemek istediğim noktalar.
+                    Yazılım yolculuğumdaki hedeflerim.
                 </p>
 
             </div>
@@ -914,8 +1334,8 @@
                     </div>
 
                     <p>
-                        HTML, CSS ve JavaScript'i sağlam
-                        şekilde öğrenmek.
+                        HTML, CSS ve JavaScript'i
+                        sağlam bir şekilde öğrenmek.
                     </p>
 
                 </div>
@@ -928,8 +1348,8 @@
                     </div>
 
                     <p>
-                        Gerçek ve kullanışlı web
-                        projeleri geliştirmek.
+                        Gerçek problemlere çözüm
+                        üreten projeler geliştirmek.
                     </p>
 
                 </div>
@@ -942,8 +1362,8 @@
                     </div>
 
                     <p>
-                        Yazılım mühendisliği alanında
-                        profesyonel seviyeye ulaşmak.
+                        Git ve GitHub kullanımında
+                        profesyonelleşmek.
                     </p>
 
                 </div>
@@ -956,8 +1376,8 @@
                     </div>
 
                     <p>
-                        Öğrendiğim becerileri freelance
-                        projelere dönüştürmek.
+                        Öğrendiğim becerileri gerçek
+                        freelance projelere dönüştürmek.
                     </p>
 
                 </div>
@@ -970,49 +1390,56 @@
     </section>
 
 
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
     <section id="iletisim">
 
         <div class="container">
 
-            <div class="title">
+            <div class="section-heading">
 
-                <h2>İletişim</h2>
+                <span>06 / İLETİŞİM</span>
+
+                <h2>Birlikte Çalışalım</h2>
 
                 <p>
-                    Benimle iletişime geçmek için mesaj bırakabilirsin.
+                    Bir proje fikrin varsa benimle iletişime geçebilirsin.
                 </p>
 
             </div>
 
 
-            <div class="contact">
+            <div class="contact-wrapper">
 
                 <form onsubmit="mesajGonder(event)">
 
                     <input
                         type="text"
                         id="isim"
-                        placeholder="Adın"
+                        placeholder="Adınız"
+                        required
                     >
 
 
                     <input
                         type="email"
                         id="email"
-                        placeholder="E-posta adresin"
+                        placeholder="E-posta adresiniz"
+                        required
                     >
 
 
                     <textarea
                         id="mesajForm"
-                        placeholder="Mesajın"
+                        placeholder="Mesajınız"
+                        required
                     ></textarea>
 
 
                     <button type="submit">
-
                         Mesaj Gönder
-
                     </button>
 
 
@@ -1027,12 +1454,24 @@
     </section>
 
 
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
 
-        Göktuğ. © 2026
+        <div class="container">
+
+            Göktuğ. © 2026
+
+        </div>
 
     </footer>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
     <script>
 
@@ -1041,50 +1480,31 @@
             event.preventDefault();
 
 
-            let isim =
-                document.getElementById("isim").value;
+            const isim =
+                document.getElementById("isim").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const mesaj =
+                document.getElementById("mesajForm").value.trim();
+
+            const sonuc =
+                document.getElementById("formMesaj");
 
 
-            let email =
-                document.getElementById("email").value;
+            if (!isim || !email || !mesaj) {
 
-
-            let mesaj =
-                document.getElementById("mesajForm").value;
-
-
-            if (isim === "") {
-
-                document.getElementById("formMesaj").textContent =
-                    "Lütfen adınızı yazın. ❌";
-
-                return;
-
-            }
-
-
-            if (email === "") {
-
-                document.getElementById("formMesaj").textContent =
-                    "Lütfen e-posta adresinizi yazın. ❌";
+                sonuc.textContent =
+                    "Lütfen tüm alanları doldurun.";
 
                 return;
 
             }
 
 
-            if (mesaj === "") {
-
-                document.getElementById("formMesaj").textContent =
-                    "Lütfen mesajınızı yazın. ❌";
-
-                return;
-
-            }
-
-
-            document.getElementById("formMesaj").textContent =
-                "Mesajınız başarıyla gönderildi! ✅";
+            sonuc.textContent =
+                "Mesajınız hazır! Gerçek gönderim sistemi daha sonra bağlanacak.";
 
         }
 
@@ -1094,3 +1514,4 @@
 </body>
 
 </html>
+```
