@@ -1,0 +1,883 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Göktuğ | Software Engineer</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0f0d;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(11, 15, 13, 0.95);
+            border-bottom: 1px solid #1d2922;
+
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #39ff88;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #39ff88;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(circle at center, #123d26 0%, #0b0f0d 55%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero span {
+            color: #39ff88;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #aab5ae;
+            font-size: 20px;
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #39ff88;
+            color: #07100a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(57, 255, 136, 0.25);
+        }
+
+        .btn-secondary {
+            border: 1px solid #39ff88;
+            color: #39ff88;
+        }
+
+        .btn-secondary:hover {
+            background: #39ff88;
+            color: #07100a;
+        }
+
+        /* GENEL */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #8d9992;
+        }
+
+        /* HAKKIMDA */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #aab5ae;
+            margin-bottom: 18px;
+        }
+
+        .about-box {
+            border: 1px solid #1d2922;
+            background: #101612;
+            padding: 35px;
+            border-radius: 16px;
+        }
+
+        .about-box h3 {
+            color: #39ff88;
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            color: #aab5ae;
+        }
+
+        /* YETENEKLER */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #101612;
+            border: 1px solid #1d2922;
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #39ff88;
+        }
+
+        .skill-card h3 {
+            color: #39ff88;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #8d9992;
+        }
+
+        .progress {
+            height: 7px;
+            background: #202a24;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #39ff88;
+            border-radius: 10px;
+        }
+
+        .html {
+            width: 80%;
+        }
+
+        .css {
+            width: 65%;
+        }
+
+        .javascript {
+            width: 30%;
+        }
+
+        /* PROJELER */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #101612;
+            border: 1px solid #1d2922;
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #39ff88;
+        }
+
+        .project-number {
+            color: #39ff88;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .project h3 {
+            margin: 15px 0;
+        }
+
+        .project p {
+            color: #8d9992;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #39ff88;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* HEDEFLER */
+
+        .goals {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .goal {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            background: #101612;
+            border: 1px solid #1d2922;
+
+            padding: 22px;
+            margin-bottom: 15px;
+
+            border-radius: 12px;
+        }
+
+        .goal-number {
+            color: #39ff88;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .goal p {
+            color: #aab5ae;
+        }
+
+        /* İLETİŞİM */
+
+        .contact {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+
+            background: #101612;
+            border: 1px solid #1d2922;
+            border-radius: 8px;
+
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #39ff88;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        form button {
+            padding: 14px;
+            background: #39ff88;
+            color: #07100a;
+
+            border: none;
+            border-radius: 8px;
+
+            font-weight: bold;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            transform: translateY(-2px);
+        }
+
+        #formMesaj {
+            text-align: center;
+            color: #39ff88;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #1d2922;
+            text-align: center;
+            padding: 30px;
+            color: #69756e;
+        }
+
+        /* MOBİL */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .skills,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            GÖKTUĞ.
+        </div>
+
+        <ul>
+            <li><a href="#anasayfa">Ana Sayfa</a></li>
+            <li><a href="#hakkimda">Hakkımda</a></li>
+            <li><a href="#yetenekler">Yetenekler</a></li>
+            <li><a href="#projeler">Projeler</a></li>
+            <li><a href="#hedefler">Hedefler</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="anasayfa">
+
+        <div class="hero-content">
+
+            <h1>
+                Merhaba, ben <span>Göktuğ.</span>
+            </h1>
+
+            <p>
+                Yazılım öğreniyorum, projeler geliştiriyorum
+                ve geleceğin teknolojilerini keşfediyorum.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projeler" class="btn btn-primary">
+                    Projelerimi Gör
+                </a>
+
+                <a href="#iletisim" class="btn btn-secondary">
+                    İletişime Geç
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HAKKIMDA -->
+
+    <section id="hakkimda">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Hakkımda</h2>
+
+                <p>
+                    Kısaca ben ve yaptıklarım.
+                </p>
+
+            </div>
+
+            <div class="about">
+
+                <div class="about-text">
+
+                    <p>
+                        Merhaba, ben Göktuğ. Yazılım geliştirme
+                        alanında kendimi geliştirmeye çalışan
+                        bir öğrenciyim.
+                    </p>
+
+                    <p>
+                        Web geliştirme öğrenerek başladığım bu
+                        yolculukta HTML, CSS ve JavaScript
+                        üzerinde çalışıyorum.
+                    </p>
+
+                    <p>
+                        Amacım öğrendiğim bilgileri gerçek
+                        projelere dönüştürmek ve zamanla
+                        profesyonel yazılım projeleri geliştirmek.
+                    </p>
+
+                </div>
+
+                <div class="about-box">
+
+                    <h3>Şu An Ne Yapıyorum?</h3>
+
+                    <p>
+                        Web geliştirme öğreniyorum,
+                        kendi projelerimi geliştiriyorum
+                        ve yazılım mühendisliği alanında
+                        kendimi hazırlıyorum.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- YETENEKLER -->
+
+    <section id="yetenekler">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Yetenekler</h2>
+
+                <p>
+                    Öğrenme sürecimde üzerinde çalıştığım teknolojiler.
+                </p>
+
+            </div>
+
+            <div class="skills">
+
+                <div class="skill-card">
+
+                    <h3>HTML</h3>
+
+                    <p>
+                        Web sayfalarının temel yapısını
+                        oluşturmayı öğreniyorum.
+                    </p>
+
+                    <div class="progress">
+                        <div class="progress-bar html"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>CSS</h3>
+
+                    <p>
+                        Modern ve responsive web
+                        tasarımları geliştiriyorum.
+                    </p>
+
+                    <div class="progress">
+                        <div class="progress-bar css"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        Web sitelerine etkileşim ve
+                        dinamik özellikler eklemeyi öğreniyorum.
+                    </p>
+
+                    <div class="progress">
+                        <div class="progress-bar javascript"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJELER -->
+
+    <section id="projeler">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Projeler</h2>
+
+                <p>
+                    Öğrenirken geliştirdiğim çalışmalar.
+                </p>
+
+            </div>
+
+            <div class="projects">
+
+                <div class="project">
+
+                    <div class="project-number">
+                        01
+                    </div>
+
+                    <h3>Kişisel Web Sitesi</h3>
+
+                    <p>
+                        HTML, CSS ve JavaScript kullanarak
+                        geliştirdiğim kişisel portföy sitesi.
+                    </p>
+
+                    <a href="#anasayfa">
+                        İncele →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        02
+                    </div>
+
+                    <h3>Hesap Makinesi</h3>
+
+                    <p>
+                        JavaScript kullanarak geliştirdiğim
+                        basit hesap makinesi uygulaması.
+                    </p>
+
+                    <a href="#yetenekler">
+                        İncele →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        03
+                    </div>
+
+                    <h3>Yeni Proje</h3>
+
+                    <p>
+                        Öğrenme sürecimde geliştireceğim
+                        yeni projeler burada yer alacak.
+                    </p>
+
+                    <a href="#iletisim">
+                        Yakında →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HEDEFLER -->
+
+    <section id="hedefler">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Hedeflerim</h2>
+
+                <p>
+                    Yazılım yolculuğumda ilerlemek istediğim noktalar.
+                </p>
+
+            </div>
+
+            <div class="goals">
+
+                <div class="goal">
+
+                    <div class="goal-number">
+                        01
+                    </div>
+
+                    <p>
+                        HTML, CSS ve JavaScript'i sağlam şekilde öğrenmek.
+                    </p>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <div class="goal-number">
+                        02
+                    </div>
+
+                    <p>
+                        Gerçek ve kullanışlı web projeleri geliştirmek.
+                    </p>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <div class="goal-number">
+                        03
+                    </div>
+
+                    <p>
+                        Yazılım mühendisliği alanında profesyonel
+                        seviyeye ulaşmak.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- İLETİŞİM -->
+
+    <section id="iletisim">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>İletişim</h2>
+
+                <p>
+                    Benimle iletişime geçmek için mesaj bırakabilirsin.
+                </p>
+
+            </div>
+
+            <div class="contact">
+
+                <form onsubmit="mesajGonder(event)">
+
+                    <input
+                        type="text"
+                        id="isim"
+                        placeholder="Adın"
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="E-posta adresin"
+                    >
+
+                    <textarea
+                        id="mesajForm"
+                        placeholder="Mesajın"
+                    ></textarea>
+
+                    <button type="submit">
+                        Mesaj Gönder
+                    </button>
+
+                    <p id="formMesaj"></p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Göktuğ. © 2026
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function mesajGonder(event) {
+
+            event.preventDefault();
+
+            let isim =
+                document.getElementById("isim").value;
+
+            let email =
+                document.getElementById("email").value;
+
+            let mesaj =
+                document.getElementById("mesajForm").value;
+
+
+            if (isim === "") {
+
+                document.getElementById("formMesaj").textContent =
+                    "Lütfen adınızı yazın. ❌";
+
+                return;
+            }
+
+
+            if (email === "") {
+
+                document.getElementById("formMesaj").textContent =
+                    "Lütfen e-posta adresinizi yazın. ❌";
+
+                return;
+            }
+
+
+            if (mesaj === "") {
+
+                document.getElementById("formMesaj").textContent =
+                    "Lütfen mesajınızı yazın. ❌";
+
+                return;
+            }
+
+
+            document.getElementById("formMesaj").textContent =
+                "Mesajınız başarıyla gönderildi! ✅";
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
